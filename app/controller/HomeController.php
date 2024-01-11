@@ -1,12 +1,14 @@
 <?php
 namespace App\controller;
-use App\model\UserModel;
+use App\model\wiki;
 
 class HomeController
 {
     public function index()
     {
-        require(__DIR__ .'../../../views/authentification.php');
+        $wikies = wiki::getWiki();
+        require(__DIR__ .'../../../views/home.php');
     }
+
 }
 ?>
