@@ -3,7 +3,7 @@
         'name' => 'youcode/jobeasy_mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a5af5567ea2f529a596684831c53a7eaf2e24e2d',
+        'reference' => 'a755f469a914484323ee09a2ffcccda1a2a4f7fa',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -31,7 +31,7 @@
         'youcode/jobeasy_mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a5af5567ea2f529a596684831c53a7eaf2e24e2d',
+            'reference' => 'a755f469a914484323ee09a2ffcccda1a2a4f7fa',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

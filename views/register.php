@@ -19,10 +19,6 @@
       <div class="input-box">
         <input type="password" name="password" placeholder="Create password" required>
       </div>
-      <select class="input-box" name="role">
-        <option name="role">Admin</option>
-        <option name="role">auteur</option>
-      </select>
       <div class="input-box button">
         <input type="submit" value="Register Now">
       </div>

@@ -3,7 +3,8 @@ require_once __DIR__ . '../../vendor/autoload.php';
 
 use App\controller\HomeController;
 use App\controller\authentiController;
-use App\controller\admin\adminHomeController;
+use App\controller\HomeAdminController;
+use App\controller\HomeAuteurController;
 
 
 $route = isset($_GET['route']) ? $_GET['route'] : 'home';
@@ -17,10 +18,40 @@ switch ($route) {
     $controller->index();
     break;
 
+/////////////////////////  Admin   /////////////////////////////
+
   case 'homeadmin':
-    $adminHome = new adminHomeController();
-    $adminHome->adminHome();
+    $adminHo = new HomeAdminController();
+    $adminHo->adminHome();
     break;
+  
+  case 'addTages':
+    $category = new HomeAdminController();
+    $category->addTages();
+    break;
+
+  case 'addCategory':
+    $category = new HomeAdminController();
+    $category->addCategory();
+    break;
+
+  // case 'homeaddcategory':
+  //   $category = new HomeAdminController();
+  //   $category->addPage();
+  //   break;
+
+  case 'homeaddcategory':
+    $catego = new HomeAdminController();
+    $catego->getCategories();
+    break;
+
+///////////////////////// Authentification //////////////////////////////
+
+  case 'auteurWiki':
+    $adminHo = new HomeAuteurController();
+    $adminHo->autHome();
+    break;
+
 
 ///////////////////////// Authentification //////////////////////////////
   
@@ -32,6 +63,11 @@ switch ($route) {
   case 'register':
     $login = new authentiController();
     $login->register();
+    break;
+
+  case 'addWiki':
+    $adminHo = new HomeAuteurController();
+    $adminHo->addWiki();
     break;
 
   default:

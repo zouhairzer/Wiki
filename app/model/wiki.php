@@ -13,7 +13,7 @@ class wiki
     }
 
     static public function getWiki(){
-        $stmt = connection::connect()->prepare("SELECT * FROM announces");
+        $stmt = connection::connect()->prepare("SELECT * FROM announces WHERE active =0");
         $stmt->execute();
         return $stmt->fetchAll();
     }

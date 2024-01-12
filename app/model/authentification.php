@@ -30,6 +30,8 @@ class authentification
         if(!$result){
         $hashPassword = password_hash($password, PASSWORD_DEFAULT);
 
+        $role = "auteur";
+
         $inscrit =connection::connect()->prepare('INSERT INTO user(`name`, `email`, `password`,`role`) VALUES (:name, :email, :password, :role)');
 
         $inscrit->bindParam(':name',$username);

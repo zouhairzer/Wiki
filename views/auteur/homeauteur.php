@@ -25,8 +25,7 @@
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                    <a href="?route=homeaddtages" class="sidebar_link"> <img src="/assets/img/task.svg" alt="icon">Tages</a>
-                        <a href="?route=homeaddcategory" class="sidebar_link"><img src="/assets/img/articles.svg" alt="icon">Category</a>
+                        <a href="?route=auteurWiki" class="sidebar_link"> <img src="/assets/img/1. overview.svg" alt="icon">Announces</a>
                     </li>
                 </ul>
             </div>
