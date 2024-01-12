@@ -14,7 +14,7 @@
 <div class="container ">
     <div class="wrapper">
     <div class="title" style="background-color:#343a40;"><span>New Category</span></div>
-    <form  method="POST" action="?route=addCtegory" enctype="multipart/form-data">
+    <form  method="POST" action="?route=addCategory" >
       <div class="row">
         <input type="text" name="nom" placeholder="nom" required>
       </div>

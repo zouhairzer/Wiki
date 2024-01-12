@@ -30,19 +30,21 @@ switch ($route) {
     $category->addTages();
     break;
 
-  case 'addCategory':
-    $category = new HomeAdminController();
-    $category->addCategory();
-    break;
-
-  // case 'homeaddcategory':
-  //   $category = new HomeAdminController();
-  //   $category->addPage();
-  //   break;
-
   case 'homeaddcategory':
     $catego = new HomeAdminController();
     $catego->getCategories();
+    break;
+
+  case 'addCategory':
+    $catego = new HomeAdminController();
+    $catego->addCategories();
+    break;
+
+  case 'delete':
+    isset($_GET['id']);
+    $id = $_GET['id'];
+    $catego = new HomeAdminController();
+    $catego->deleteCategories($id);
     break;
 
 ///////////////////////// Authentification //////////////////////////////

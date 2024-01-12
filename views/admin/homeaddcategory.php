@@ -84,7 +84,7 @@
             </nav>
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
-                    <a href="?route=addWiki"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Category</button></a>
+                    <a href="?route=addCategory"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Category</button></a>
                     <thead class="bg-light">
                         <tr>
                             <th>id</th>
@@ -101,7 +101,7 @@
                             <p class="text-muted mb-0 f_email"><?= $categories['nom'];?></p>
                         </td>
                         <td class="f_position">
-                            <a href="?route=delete&job_id="><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
+                            <a href="?route=delete&id=<?= $categories['id'];?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
                         </td>
                         <td>
                         <?php echo "<a href='?route=update&job_id='><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>";?>
