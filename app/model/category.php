@@ -27,12 +27,18 @@ class category
     }
 
 
-    public function updateCategory($id){
+    public function fetchCategory($id){
         
         $category = connection::connect()->prepare("SELECT * FROM categories WHERE id = :id");
         $category->bindParam(':id', $id);
         $category->execute();
+        return $category->fetchAll();
     }
 
-
+    public function UpdateCategory($id,$nom){
+        $category = connection::connect()->prepare("UPDATE categories SET nom = :nom WHERE id = :id");
+        $category->bindParam(':id', $id);
+        $category->bindParam(':nom', $nom);
+        $category->execute();
+    }
 }

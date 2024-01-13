@@ -20,4 +20,5 @@
       </div>
       <div class="row button" >
           <input type='Submit' style='background-color:#343a40;' name='submit' > 
+          <a href="?route=homeaddcategory">Retour</a> 
       </div>

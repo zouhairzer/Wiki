@@ -26,3 +26,16 @@ document.getElementById('loadMore').addEventListener('click', function () {
     xhr.send();
 });
 
+
+let userInput = document.querySelector("[name='email']");
+document.forms[0].onsubmit = function (e) {
+    let uservalid = flase;
+    let agevalid = flase;
+    console.log(userInput.value);
+    console.log(userInput.value.length);
+    if(uservalid === flase || agevalid === flase) {
+        e.preventDefault();
+    }
+};
+
+

@@ -24,8 +24,8 @@
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                        <a href="" class="sidebar_link"> <img src="/assets/img/task.svg" alt="icon">Tages</a>
-                        <a href="" class="sidebar_link"><img src="/assets/img/articles.svg" alt="icon">Category</a>
+                        <a href="?route=homeaddtages" class="sidebar_link"> <img src="/assets/img/task.svg" alt="icon">Tages</a>
+                        <a href="?route=homeaddcategory" class="sidebar_link"><img src="/assets/img/articles.svg" alt="icon">Category</a>
                     </li>
                 </ul>
             </div>
@@ -84,41 +84,29 @@
             </nav>
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
-                    <a href="?route=addWiki"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Tages</button></a>
+                    <a href="?route=addTages"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Tages</button></a>
                     <thead class="bg-light">
                         <tr>
-                            <th>Company</th>
-                            <th>Title</th>
-                            <th>Description</th>
-                            <th>location</th>
-                            <th>Date</th>
+                            <th>ID</th>
+                            <th>Nom</th>
                             <th>Action</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                <?php foreach ($collections as $jobs):?>
+                <?php foreach ($tages as $row):?>
                     <tr class="freelancer">
                         <td>
-                            <img class='grid-img' src="/../../<?= $jobs['image_path'] ?>" style="width : 90px;" />
+                            <p class="fw-bold mb-1 f_name"><?= $row['id'];?></p>
                         </td>
                         <td>
-                            <p class="fw-bold mb-1 f_name"><?= $jobs['title'];?></p>
-                        </td>
-                        <td>
-                            <p class="text-muted mb-0 f_email"><?= $jobs['description'];?></p>
-                        </td>
-                        <td>
-                            <p class="fw-normal mb-1 f_title"><?= $jobs['location']; ?></p>
-                        </td>
-                        <td>
-                            <span class="f_status"><?= $jobs['date_created']; ?></span>
+                            <p class="text-muted mb-0 f_email"><?= $row['name'];?></p>
                         </td>
                         <td class="f_position">
-                            <a href="?route=delete&job_id=<?php echo $jobs['job_id'] ?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
+                            <a href="?route=deleteTage&id=<?php echo $row['id'] ?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
                         </td>
                         <td>
-                        <?php echo "<a href='?route=update&job_id=".$jobs['job_id']."'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>";?>
+                        <?php echo "<a href='?route=updateTage&id=".$row['id']."'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>";?>
                         </td>
                     </tr>
                 <?php endforeach; ?>

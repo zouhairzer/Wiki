@@ -24,11 +24,44 @@ switch ($route) {
     $adminHo = new HomeAdminController();
     $adminHo->adminHome();
     break;
-  
-  case 'addTages':
-    $category = new HomeAdminController();
-    $category->addTages();
+
+/////////////////////////  Admin Tages   /////////////////////////////
+
+
+  case 'homeaddtages':
+    $tages = new HomeAdminController();
+    $tages->fetchTages();
     break;
+
+
+  case 'addTages':
+    $tages = new HomeAdminController();
+    $tages->addTages();
+    break;
+    
+  
+  case 'deleteTage':
+    isset($_GET['id']);
+    $id = $_GET['id'];
+    $tage = new HomeAdminController();
+    $tage->deleteTages($id);
+    break;
+
+  
+  case 'updateTage':
+    if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $tage = new HomeAdminController();
+    $tage->getCaTages($id);
+    }
+    elseif(isset($_POST['submit'])){
+      extract($_POST);
+      $tage= new HomeAdminController();
+      $tage->UpdateTages($id, $nom);
+    }
+    break;
+
+  /////////////////////////  Admin Category  /////////////////////////////
 
   case 'homeaddcategory':
     $catego = new HomeAdminController();
@@ -43,16 +76,36 @@ switch ($route) {
   case 'delete':
     isset($_GET['id']);
     $id = $_GET['id'];
-    $catego = new HomeAdminController();
-    $catego->deleteCategories($id);
+    $category = new HomeAdminController();
+    $category->deleteCategories($id);
     break;
 
-///////////////////////// Authentification //////////////////////////////
 
-  case 'auteurWiki':
-    $adminHo = new HomeAuteurController();
-    $adminHo->autHome();
+  case 'updateCategory':
+    if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $category = new HomeAdminController();
+    $category->fetchCategories($id);
+    }
+    elseif(isset($_POST['submit'])){
+      extract($_POST);
+      $category = new HomeAdminController();
+      $category->UpdateCategories($id, $nom);
+    }
     break;
+
+
+
+
+
+
+
+///////////////////////// Auteur //////////////////////////////
+
+  case 'homeauteur':
+    $auteurHo = new HomeAuteurController();
+    $auteurHo->autHome();
+  break;  
 
 
 ///////////////////////// Authentification //////////////////////////////

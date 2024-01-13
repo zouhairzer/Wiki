@@ -12,7 +12,13 @@ class authentification
         $row = $checkLog->fetch(PDO::FETCH_ASSOC);
     
         if ($row && password_verify($password, $row['password'])) {
-            header('Location: ?route=home');
+            if($row['role'] === 'admin'){
+                header('Location: ?route=homeadmin');
+            }
+            else{
+                header('Location: ?route=homeauteur');
+            }
+            
         } 
         else {
             header('Location: ?route=login');

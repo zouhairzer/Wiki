@@ -24,7 +24,7 @@
 
                 <ul class="sidebar_nav">
                     <li class="sidebar_item active" style="width: 100%;">
-                        <a href="" class="sidebar_link"> <img src="/assets/img/task.svg" alt="icon">Tages</a>
+                        <a href="?route=homeaddtages" class="sidebar_link"> <img src="/assets/img/task.svg" alt="icon">Tages</a>
                         <a href="" class="sidebar_link"><img src="/assets/img/articles.svg" alt="icon">Category</a>
                     </li>
                 </ul>
@@ -104,7 +104,7 @@
                             <a href="?route=delete&id=<?= $categories['id'];?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
                         </td>
                         <td>
-                        <?php echo "<a href='?route=update&job_id='><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>";?>
+                            <a href='?route=updateCategory&id=<?= $categories['id'];?>'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

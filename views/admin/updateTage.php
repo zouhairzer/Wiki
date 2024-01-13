@@ -14,11 +14,18 @@
 <div class="container ">
     <div class="wrapper">
     <div class="title" style="background-color:#343a40;"><span>New Tages</span></div>
-    <form  method="POST" action="?route=addTages">
+    <?php foreach($fetchTage as $row) : ?>
+    <form  method="POST" action="?route=updateTage">
       <div class="row">
-        <input type="text" name="nom" placeholder="nom" required>
+        <input type="text" name="nom" value="<?= $row['name'] ?>" placeholder="nom" required>
+        <input type="hidden" name="id" value="<?= $row['id'] ?>">
       </div>
       <div class="row button" >
-          <input type='Submit' style='background-color:#343a40;' name='submit' > 
-          <a href="?route=homeaddtages">Retour</a> 
+        <input type='submit' style='background-color:#343a40;' name='submit'>
       </div>
+      <div class="row button" >
+        <a href="?route=homeaddcategory">Retour</a> 
+      </div>
+    </form>
+    <?php endforeach; ?>
+</body>
