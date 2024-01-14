@@ -1,6 +1,5 @@
 <?php
 require_once __DIR__ . '../../vendor/autoload.php';
-
 use App\controller\HomeController;
 use App\controller\authentiController;
 use App\controller\HomeAdminController;
@@ -102,11 +101,32 @@ switch ($route) {
 
 ///////////////////////// Auteur //////////////////////////////
 
+
   case 'homeauteur':
     $auteurHo = new HomeAuteurController();
     $auteurHo->autHome();
   break;  
 
+  case 'addWiki':
+    $titre = isset($_POST['titre']) ? $_POST['titre'] : '';
+    $description = isset($_POST['description']) ? $_POST['description'] : '';
+    $category_id = isset($_POST['categoryID']) ? $_POST['categoryID'] : '';
+    $active = 1; 
+    $adminHo = new HomeAuteurController();
+    $adminHo->addWikies($titre, $description, $category_id, $active);
+    break;
+
+    case 'deleteWikie':
+      isset($_GET['id']);
+      $id = $_GET['id'];
+      $category = new HomeAuteurController();
+      $category->archiveWikies($id);
+      break;
+
+    case 'addview':
+      $category = new HomeAuteurController();
+      $category->addview();
+      break;
 
 ///////////////////////// Authentification //////////////////////////////
   
@@ -118,11 +138,6 @@ switch ($route) {
   case 'register':
     $login = new authentiController();
     $login->register();
-    break;
-
-  case 'addWiki':
-    $adminHo = new HomeAuteurController();
-    $adminHo->addWiki();
     break;
 
   default:

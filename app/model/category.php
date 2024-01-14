@@ -8,7 +8,8 @@ class category
         
         $category = connection::connect()->prepare("SELECT * FROM categories");
         $category->execute();
-        return $category->fetchAll();
+        $categories = $category->fetchAll();
+        return $categories;
     }
     
     public function addCategory($nom){
@@ -39,6 +40,6 @@ class category
         $category = connection::connect()->prepare("UPDATE categories SET nom = :nom WHERE id = :id");
         $category->bindParam(':id', $id);
         $category->bindParam(':nom', $nom);
-        $category->execute();
+        
     }
 }

@@ -22,11 +22,10 @@ class tages
         $deleteTage = connection::connect()->prepare("DELETE FROM `tages` WHERE id = :id");
         $deleteTage->bindParam(':id', $id);
         $deleteTage->execute();
-
     }
 
+
     public function fetchTage($id){
-        
         $tages = connection::connect()->prepare("SELECT * FROM tages WHERE id = :id");
         $tages->bindParam(':id', $id);
         $tages->execute();

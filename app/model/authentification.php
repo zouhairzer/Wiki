@@ -1,8 +1,6 @@
 <?php
 namespace App\model;
 use PDO;
-session_start();
-
 class authentification
 {
     public function login($email, $password){
@@ -13,10 +11,14 @@ class authentification
     
         if ($row && password_verify($password, $row['password'])) {
             if($row['role'] === 'admin'){
+                
                 header('Location: ?route=homeadmin');
+                return $row;
             }
             else{
+              
                 header('Location: ?route=homeauteur');
+                return $row;
             }
             
         } 

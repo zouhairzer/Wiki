@@ -62,24 +62,30 @@
             </nav>
             <section class="Agents px-4">
                 <table class="agent table align-middle bg-white">
-                    <a href="?route=addWiki"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Wiki</button></a>
+                    <a href="?route=addview"><button type="button" class="btn btn-dark  btn btn-outline-light ">Add New Wiki</button></a>
                     <thead class="bg-light">
                         <tr>
-                            <th>id</th>
-                            <th>Nom</th>
+                            <th>titre</th>
+                            <th>description</th>
+                            <th>Image</th>
+                            <th>Action</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                <?php foreach ($category as $categories):?>
+                    <?php foreach ($wikies as $row):?>
                     <tr class="freelancer">
                         <td>
-                            <p class="fw-bold mb-1 f_name"><?= $categories['id'];?></p>
+                            <p class="fw-bold mb-1 f_name"><?= $row['titre'];?></p>
                         </td>
                         <td>
-                            <p class="text-muted mb-0 f_email"><?= $categories['nom'];?></p>
+                            <?= $row['description'];?>
+                        </td>
+                        <td>
+                            <img class='grid-img' src="/../../<?= $row['image'] ?>" style="width : 90px;" />
                         </td>
                         <td class="f_position">
-                            <a href="?route=delete&id=<?= $categories['id'];?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
+                            <a href="?route=deleteWikie&id=<?= $row['id'];?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
                         </td>
                         <td>
                             <a href='?route=updateCategory&id=<?= $categories['id'];?>'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>

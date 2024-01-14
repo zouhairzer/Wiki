@@ -11,15 +11,15 @@
 <body>
   <div class="wrapper">
     <h2>Login</h2>
-    <form method="POST" action="?route=login">
+    <form id="login" method="POST" action="?route=login" onsubmit="return validateForm()">
       <div class="input-box">
-        <input type="text" name="email" placeholder="Enter your email" required>
+        <input type="text" id="email" name="email" placeholder="Enter your email" required>
       </div>
       <div class="input-box">
-        <input type="password" name="password" placeholder="Create password" required>
+        <input type="password" id="password" name="password" placeholder="Create password" required>
       </div>
       <div class="input-box button">
-        <input type="submit" value="Login">
+        <input type="submit" value="submit">
       </div>
       <span style="color:red;"></span>
         <div class="signup-link">Not a member? <a href="?route=register">Signup now</a></div>
@@ -27,6 +27,7 @@
   </div>
 </body>
     <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script type="text/javascript" src="/assets/js/validation.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

@@ -1,8 +1,7 @@
 <?php
-
 namespace App\controller;
 use App\model\authentification;
-
+session_start();
 class authentiController
 {
     public function log(){
@@ -11,7 +10,12 @@ class authentiController
             $email = $_POST['email'];
             $password = $_POST['password'];
             $loged = new authentification();
-            $loged->login($email, $password);
+            $singIN = $loged->login($email, $password);
+            $_SESSION['name'] = $singIN['name'];
+                $_SESSION['role'] = $singIN['role'];
+                $_SESSION['id'] = $singIN['id'];
+                // dump($_SESSION['role']);
+                // die();
         }
         require(__DIR__ .'../../../views/login.php');
     }
@@ -31,9 +35,7 @@ class authentiController
             $_SESSION['username'] = $username;
             $_SESSION['email'] = $email;
             if($inscript){
-                session_start();
-                $_SESSION['username'] = $username;
-                $_SESSION['email'] = $email;
+                
 
                 header ('location:?route=login');
             }else{
