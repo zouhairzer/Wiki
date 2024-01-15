@@ -63,13 +63,11 @@
 	</header>
 
     <section class="search">
-        <h2>Find Wiki</h2>
+        <h2>Find Your Dream Job</h2>
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" name="company" placeholder="Search by title" id="searchInput">
-            <input type="text" name="company" placeholder="Search by title" id="searchInput">
-            <input type="text" name="company" placeholder="Search by title" id="searchInput">
-			<button type="button" class="btn btn-primary mb-2" onclick="search()">Search</button>
         </div>
+        <button type="button" class="btn btn-primary mb-2" onclick="search()">Search</button>
     </section>
 
     	<!--------------------------  card  --------------------->

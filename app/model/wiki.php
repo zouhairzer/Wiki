@@ -5,7 +5,7 @@ use PDO;
 class wiki
 {
 
-    public function addWiki($titre, $description, $category_id, $active, $imagePath) {
+    public function addWiki($titre, $description, $category_id, $active, $imagePath , $Tags) {
         $add = connection::connect()->prepare('INSERT INTO announces (`titre`, `description`, `userID`, `categoryID`, `active`, `image`) VALUES (:titre, :description, :user_id, :category_id, :active, :imagePath)');
         $add->bindParam(':titre', $titre);
         $add->bindParam(':description', $description);
@@ -13,7 +13,29 @@ class wiki
         $add->bindParam(':category_id', $category_id);
         $add->bindParam(':active', $active);
         $add->bindParam(':imagePath', $imagePath);
-        $add->execute();
+        $result = $add->execute();
+        if($result){
+            $stmt = connection::connect()->prepare('SELECT * FROM announces ORDER BY id DESC LIMIT 1');
+            $stmt->execute();            
+            $check = $stmt->fetch();
+            $id = $check['id'];
+            // var_dump($id);
+            // var_dump($Tags);
+            // die();
+            if($check){
+                foreach($Tags As $tag){
+                    $addtag = connection::connect()->prepare("INSERT INTO `tages_wiki` (`wiki_id`, `tage_id`)        
+                                    VALUES (:wikiID, :tagID)");
+                    $addtag->bindParam(':wikiID', $id);
+                    $addtag->bindParam(':tagID', $tag);
+                    $addtag->execute();  
+                    
+                    
+                    
+                }
+            }
+        }
+
     }
     
     public function archiveWiki($id){

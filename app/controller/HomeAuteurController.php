@@ -12,7 +12,7 @@ class HomeAuteurController
         require(__DIR__ .'../../../views/auteur/homeauteur.php');
     }
 
-    public function addWikies($titre, $description, $category_id, $active) {
+    public function addWikies($titre, $description, $category_id, $active ,$Tags) {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
             $directory = "assets/img/";
@@ -25,7 +25,7 @@ class HomeAuteurController
                 move_uploaded_file($_FILES["image"]["tmp_name"], $path);
 
                 $addWiki = new Wiki();
-                $addWiki->addWiki($titre, $description,  $category_id, $active, $path);
+                $addWiki->addWiki($titre, $description,  $category_id, $active, $path ,$Tags);
             } else {
                 echo "Error uploading file.";
             }

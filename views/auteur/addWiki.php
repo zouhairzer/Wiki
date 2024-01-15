@@ -48,11 +48,12 @@
             </select>
           </div>
           <div id="divTags" >
-            <?php foreach ($resultTags As $tag):?>
-            <input type="checkbox" name="check_<?= $tag['id'] ?>" value='check_<?= $tag['id'] ?>'>
+          <?php foreach ($resultTags as $tag): ?>
+            <input type="checkbox" id="check_<?= $tag['id'] ?>" value="<?= $tag['id'] ?>" name="Tags[]">
             <label for="check_<?= $tag['id'] ?>"><?= $tag['name'] ?></label>
             <br>
-            <?php endforeach ?>
+        <?php endforeach ?>
+
           </div>
           <br>
           <div class="row button">

@@ -17,6 +17,11 @@ switch ($route) {
     $controller->index();
     break;
 
+  case 'homeMoreInfo':
+    $controller = new HomeController();
+    $controller->index();
+    break;
+
 /////////////////////////  Admin   /////////////////////////////
 
   case 'homeadmin':
@@ -112,21 +117,25 @@ switch ($route) {
     $description = isset($_POST['description']) ? $_POST['description'] : '';
     $category_id = isset($_POST['categoryID']) ? $_POST['categoryID'] : '';
     $active = 1; 
+    $selectedTags = isset($_POST['Tags']) ? $_POST['Tags'] : array();
+
     $adminHo = new HomeAuteurController();
-    $adminHo->addWikies($titre, $description, $category_id, $active);
+    $adminHo->addWikies($titre, $description, $category_id, $active , $selectedTags);
     break;
 
-    case 'deleteWikie':
-      isset($_GET['id']);
-      $id = $_GET['id'];
-      $category = new HomeAuteurController();
-      $category->archiveWikies($id);
-      break;
+  case 'addview':
+    $category = new HomeAuteurController();
+    $category->addview();
+    break;
 
-    case 'addview':
-      $category = new HomeAuteurController();
-      $category->addview();
-      break;
+  case 'deleteWikie':
+    isset($_GET['id']);
+    $id = $_GET['id'];
+    $category = new HomeAuteurController();
+    $category->archiveWikies($id);
+    break;
+
+
 
 ///////////////////////// Authentification //////////////////////////////
   
