@@ -18,8 +18,10 @@ switch ($route) {
     break;
 
   case 'homeMoreInfo':
-    $controller = new HomeController();
-    $controller->index();
+    isset($_GET['id']);
+    $id = $_GET['id'];
+    $controller = new HomeAuteurController();
+    $controller->MoreInfos($id);
     break;
 
 /////////////////////////  Admin   /////////////////////////////
@@ -89,7 +91,7 @@ switch ($route) {
     if(isset($_GET['id'])){
     $id = $_GET['id'];
     $category = new HomeAdminController();
-    $category->fetchCategories($id);
+    $category->fetchCategories();
     }
     elseif(isset($_POST['submit'])){
       extract($_POST);
@@ -97,12 +99,6 @@ switch ($route) {
       $category->UpdateCategories($id, $nom);
     }
     break;
-
-
-
-
-
-
 
 ///////////////////////// Auteur //////////////////////////////
 
@@ -135,7 +131,27 @@ switch ($route) {
     $category->archiveWikies($id);
     break;
 
+  case 'updateWiki':
+      isset($_GET['id']);
+      $id = $_GET['id'];
+      $check = new HomeAuteurController;
+      $check->fetchWikies($id);
+    
+    break;
 
+  case 'modify_wiki' : 
+
+    $titre = isset($_POST['titre']) ? $_POST['titre'] : '';
+    $description = isset($_POST['description']) ? $_POST['description'] : '';
+    $category_id = isset($_POST['categoryID']) ? $_POST['categoryID'] : '';
+    $active = 1; 
+    $selectedTags = isset($_POST['Tags']) ? $_POST['Tags'] : array();
+    $wikiID = isset($_POST['wikiID']) ? $_POST['wikiID'] : '';
+
+    $adminHo = new HomeAuteurController();
+    $adminHo->update_wiki($wikiID , $titre, $description, $category_id, $active , $selectedTags);
+
+    break;
 
 ///////////////////////// Authentification //////////////////////////////
   
@@ -147,6 +163,14 @@ switch ($route) {
   case 'register':
     $login = new authentiController();
     $login->register();
+    break;
+
+///////////////////////// Search //////////////////////////////
+
+  case 'search':
+    isset($_GET['titre']);
+    $check = new HomeAuteurController;
+    $search = $check->search($_GET['titre']);
     break;
 
   default:

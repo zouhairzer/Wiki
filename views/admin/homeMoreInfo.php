@@ -65,16 +65,16 @@
     <section class="search">
         <h2>Find Your Dream Job</h2>
         <div class="form-group mx-sm-3 mb-2">
-            <input type="text" name="company" placeholder="Search by title" id="searchInput">
+            <input type="text" name="company" placeholder="Search by title">
         </div>
-        <button type="button" class="btn btn-primary mb-2" onclick="search()">Search</button>
+        <button type="button" class="btn btn-primary mb-2" >Search</button>
     </section>
 
     	<!--------------------------  card  --------------------->
 	<section class="light">
 		<h2 class="text-center py-3">The last wiki</h2>
-		<div class="container py-2" id="MyDiv">
-		<?php foreach ($wikies as $row):?>
+		<div class="container py-2">
+		<?php foreach ($moreInfoWiki as $row):?>
 			<article class="postcard light green">
 				<a class="postcard__img_link" href="?route=homeMoreInfo">
 					<img class="postcard__img" src="../../<?= $row['image'];?>" alt="Image Title" />
@@ -83,12 +83,13 @@
 					<h3 class="postcard__title green"><?= $row['titre'];?></h3>
 					<div class="postcard__subtitle small">
 						<time datetime="2020-05-25 12:00:00">
-							<i class="fas fa-calendar-alt mr-2"></i>
+							<i class="fas fa-calendar-alt mr-2"><?= $row['categories'];?></i>
 						</time>
 					</div>
 					<div class="postcard__preview-txt"><?= $row['description'];?></div>
 					<ul class="postcard__tagbox">
 						<li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $row['date'];?></li>
+						<li class="tag__item"><i class="fas fa-tag mr-2"></i><?= $row['tages'];?></li>
 					</ul>
 				</div>
 			</article>
@@ -100,6 +101,7 @@
 	</footer>   
 </body>
     <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script type="text/javascript" src="/assets/js/search.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

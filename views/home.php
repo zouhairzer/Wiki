@@ -66,8 +66,7 @@
         <h2>Find Wiki</h2>
         <div class="form-group mx-sm-3 mb-2">
             <input type="text" name="company" placeholder="Search by title" id="searchInput">
-            <input type="text" name="company" placeholder="Search by title" id="searchInput">
-            <input type="text" name="company" placeholder="Search by title" id="searchInput">
+          			
 			<button type="button" class="btn btn-primary mb-2" onclick="search()">Search</button>
         </div>
     </section>
@@ -78,8 +77,8 @@
 		<div class="container py-2" id="MyDiv">
 		<?php foreach ($wikies as $row):?>
 			<article class="postcard light green">
-				<a class="postcard__img_link" href="?route=homeMoreInfo">
-					<img class="postcard__img" src="../../<?= $row['image'];?>" alt="Image Title" />
+				<a class="postcard__img_link" href="?route=homeMoreInfo&id=<?= $row['id'];?>">
+					<img  class="postcard__img" src="../../<?= $row['image'];?>" alt="Image Title" />
 				</a>
 				<div class="postcard__text t-dark">
 					<h3 class="postcard__title green"><?= $row['titre'];?></h3>
@@ -102,6 +101,7 @@
 	</footer>   
 </body>
     <script type="text/javascript" src="/assets/js/script.js"></script>
+    <script type="text/javascript" src="/assets/js/search.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

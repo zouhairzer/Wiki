@@ -32,16 +32,10 @@
         </aside>
         <div class="main">
             <nav class="navbar justify-content-space-between pe-4 ps-2">
-            <button class="btn open">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                    <span></span>
                 <div class="navbar  gap-4">
                     <div class="">
-                        <input type="search" class="search " placeholder="Search">
-                        <img class="search_icon" src="assets/img/search.svg" alt="iconicon">
                     </div>
-                    <!-- <img src="img/search.svg" alt="icon"> -->
-                    <img class="notification" src="assets/img/new.svg" alt="icon">
                     <div class="card new w-auto">
                         <div class="list-group list-group-light">
                             <div class="list-group-item px-3 d-flex justify-content-between align-items-center ">
@@ -66,8 +60,8 @@
                             <div class="list-group-item px-3 text-center"><a href="#">View all notifications</a></div>
                         </div>
                     </div>
-                    <div class="inline"></div>
-                    <div class="name">Admin</div>
+                    <div></div>
+                    <div class="name"></div>
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0 position-relative" data-bs-toggle="dropdown">

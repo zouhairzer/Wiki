@@ -11,6 +11,13 @@
         <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
+    
+<style>
+    .freelancer td {
+      word-wrap: break-word; /* Permet aux mots longs de se casser et d'occuper plusieurs lignes */
+      max-width: 200px; /* Définissez la largeur maximale souhaitée */
+    }
+</style>
 
 <body>
     <div class="wrapper">
@@ -88,7 +95,7 @@
                             <a href="?route=deleteWikie&id=<?= $row['id'];?>"><img src="/assets/img/icons8-poubelle-30.png" style="width:20px;"></a>
                         </td>
                         <td>
-                            <a href='?route=updateCategory&id=<?= $categories['id'];?>'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>
+                            <a href='?route=updateWiki&id=<?= $row['id'];?>'><img class='ms-2 edit' src='/assets/img/edit.svg' style= 'width:20px;'></a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
